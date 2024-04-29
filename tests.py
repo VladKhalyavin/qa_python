@@ -88,7 +88,8 @@ class TestBooksCollector:
         Проверка добавления книги в избранное, книга не находится в избранном - успешное добавление в избранное
         """
         collection.add_book_in_favorites(book_without_genre)
-        assert len(collection.favorites) == 1 and book_without_genre in collection.favorites
+        favorites_books_list = collection.get_list_of_favorites_books()
+        assert len(favorites_books_list) == 1 and book_without_genre in favorites_books_list
 
     def test_add_book_in_favorites_name_in_favorites_book_not_added(self, collection, book_without_genre):
         """
